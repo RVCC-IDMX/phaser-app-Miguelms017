@@ -26,7 +26,7 @@ export default class TitleScreen extends Phaser.Scene {
      */
   create(){
     //title
-    this.add.text(600, 200, 'Game name', {
+    this.add.text(600, 200, 'Maze Dungeons', {
       fontFamily: 'Monospace',
       fontSize: '48px',
       color: '#ffffff',

@@ -25,8 +25,9 @@ export default class GameplayScene extends Phaser.Scene {
   }
 
   /**
-     * create project and set up gameplay
-     */
+  * create project and set up gameplay
+  */
+
   create(){
     //walls
     this.wallsGroup = this.physics.add.staticGroup();
@@ -46,9 +47,11 @@ export default class GameplayScene extends Phaser.Scene {
     //collisions
     this.physics.add.collider(this.player, this.wallsGroup);
   }
+
   /**
    * create a new maze
    */
+
   createMaze(){
     // initialize grid (1 = wall)
     this.grid = [];
@@ -67,9 +70,11 @@ export default class GameplayScene extends Phaser.Scene {
     // create maze ealls
     this.drawMaze();
   }
+
   /**
    * seek for a path
    */
+
   carvePath(x, y){
     const directions =[
       {dx: -1, dy: 0}, //left
@@ -97,9 +102,11 @@ export default class GameplayScene extends Phaser.Scene {
       }
     }
   }
+
   /**
    * drawing maze
    */
+
   drawMaze(){
     this.wallsGroup.clear(true, true);
     for (let y = 0; y < this.gridHeight; y++) {
@@ -114,9 +121,11 @@ export default class GameplayScene extends Phaser.Scene {
     this.physics.world.setBounds(0, 0, this.gridWidth * this.cellSize, this.gridHeight *
         this.cellSize);
   }
+
   /**
-     * player setup
-     */
+  * player setup
+  */
+
   createPlayer(){
     // set point of spawn
     let startX, startY;
@@ -143,6 +152,7 @@ export default class GameplayScene extends Phaser.Scene {
   /**
    * creating a goal and a key to unlock it
    */
+
   placeKeyAndGoal(){
     const pathCells = [];
     for (let y = 0; y < this.gridHeight; y++) {
@@ -154,6 +164,7 @@ export default class GameplayScene extends Phaser.Scene {
     }
 
     Phaser.Utils.Array.Shuffle(pathCells);
+
     //create key and goal
     const keyCell = pathCells[0];
     const goalCell = pathCells[1];
@@ -186,11 +197,14 @@ export default class GameplayScene extends Phaser.Scene {
   /**
    *update by frame
    */
+
   update() {
     const speed = 200; //current speed in pixels/s
     if (!this.player){
       return;
     }
+
+    //player movement
     this.player.setVelocity(0);
     if (this.cursors){
       if (this.cursors.left.isDown){
