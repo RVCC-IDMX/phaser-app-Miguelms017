@@ -71,6 +71,23 @@ main {
   width: 100%;
 }
 
+/*instructions game container*/
+.instructions{
+  margin-top: 2em;
+  padding: 2em;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.instructions h2{
+  color:#3B4CCA;
+}
+
+.instructions h3{
+  color:blueviolet;
+}
+
 /* Canvas will be created by Phaser with these dimensions */
 canvas {
   display: block;
