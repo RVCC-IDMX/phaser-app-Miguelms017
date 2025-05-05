@@ -1,0 +1,35 @@
+# netlify.toml file for the Pokémon Memory Game
+# Configuration file for Netlify deployment with Vite
+
+[build]
+  # Directory that will contain the built assets after vite build
+  publish = "dist"
+
+  # Command to build the site using Vite
+  command = "npm run build"
+
+# Redirects and rewrite rules for SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for cache control and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Cache control
+    Cache-Control = "public, max-age=3600"
+
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Content Security Policy (CSP)
+    # None
+
+# Environment variables
+[build.environment]
+  NODE_VERSION = "22"
